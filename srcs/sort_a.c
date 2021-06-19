@@ -6,13 +6,13 @@
 /*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:52:51 by alaafia           #+#    #+#             */
-/*   Updated: 2021/06/16 14:52:59 by alaafia          ###   ########.fr       */
+/*   Updated: 2021/06/19 15:11:07 by alaafia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_b(t_all *a, t_all *b, int start, int end)
+static void	sort_b(t_all *a, t_all *b, int start, int end)
 {
 	int	med;
 	int	r;
@@ -41,7 +41,7 @@ void	sort_b(t_all *a, t_all *b, int start, int end)
 	sort_b(a, b, start, med);
 }
 
-int	ft_sort_a(t_all *a, t_all *b, int start, int end)
+static int	ft_sort_a(t_all *a, t_all *b, int start, int end)
 {
 	int	len;
 	int	r;

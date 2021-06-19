@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    parse.c                                           :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 14:26:50 by alaafia           #+#    #+#             */
-/*   Updated: 2021/06/16 14:32:35 by alaafia          ###   ########.fr       */
+/*   Created: 2021/06/19 15:11:59 by alaafia           #+#    #+#             */
+/*   Updated: 2021/06/19 15:12:04 by alaafia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	**get_arg(int argc, char **argv)
 	return (res);
 }
 
-int	get_num(char *arg, int *nb)
+static int	get_num(char *arg, int *nb)
 {
 	long int	res;
 	int			sign;
@@ -79,7 +79,7 @@ int	fill_a(t_all *a, int *array, int *sorted, int ac)
 	int	index;
 	int	i;
 
-	heap_sort(sorted, ac - 1);
+	quick_sort(sorted, 0, ac - 2);
 	i = ac - 1;
 	while (--i >= 0)
 	{
@@ -118,4 +118,3 @@ int	read_arg(int ac, char **av, t_all *a)
 	free(array);
 	return (i);
 }
-

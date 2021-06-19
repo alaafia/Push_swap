@@ -6,15 +6,16 @@
 /*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:24:59 by alaafia           #+#    #+#             */
-/*   Updated: 2021/06/16 14:25:13 by alaafia          ###   ########.fr       */
+/*   Updated: 2021/06/19 15:00:46 by alaafia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*************************SWAP***************************************/
-int	swap(t_all *a)
+static int	swap(t_all *a)
 {
+	//swapping values only
 	int	tmp;
 
 	if (a && a->stack && a->stack->next)
@@ -27,8 +28,9 @@ int	swap(t_all *a)
 }
 
 /*************************PUSH***************************************/
-int	push(t_all *a, t_all *b)
+static int	push(t_all *a, t_all *b)
 {
+	//pushing first element in stack 'b' into stack 'a'
 	t_stack	*tmp;
 
 	if (a && b && b->stack)
@@ -51,8 +53,9 @@ int	push(t_all *a, t_all *b)
 
 /*************************Rotat***************************************/
 
-int	rotate(t_all *a)
+static int	rotate(t_all *a)
 {
+	//rotat the first element to be the  last one and descreasing the others by one step
 	t_stack	*tmp;
 
 	if (a && a->stack && a->stack->next)
@@ -70,10 +73,10 @@ int	rotate(t_all *a)
 
 /*************************Reverse Rotat***************************************/
 
-int	reverse_rotate(t_all *a)
+static int	reverse_rotate(t_all *a)
 {
 	t_stack	*tmp;
-
+	// rotat the last element to be the  first one and increasing the others by one step
 	if (a && a->stack && a->stack->next)
 	{
 		tmp = a->last;
@@ -86,7 +89,8 @@ int	reverse_rotate(t_all *a)
 	}
 	return (1);
 }
-
+// show is used as indice to defer between the checker '0' and the  push swap '1'
+// index i is used to know if we used some instructions or none '1' is everything is okay and '0' for errors
 int	execute_instruction(t_all *a, t_all *b, char *ins, int show)
 {
 	int	i;

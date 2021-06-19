@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/19 14:48:14 by alaafia           #+#    #+#             */
+/*   Updated: 2021/06/19 14:48:15 by alaafia          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "libft.h"
 
 void	ft_putendl(char *s)
@@ -6,12 +19,4 @@ void	ft_putendl(char *s)
 		return ;
 	ft_putstr(s);
 	ft_putchar('\n');
-}
-
-void	ft_putendl_fd(char *s, int fd)
-{
-	if (!s)
-		return ;
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
 }

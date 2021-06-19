@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strisnum.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 15:43:00 by alaafia           #+#    #+#             */
-/*   Updated: 2021/06/19 14:44:51 by alaafia          ###   ########.fr       */
+/*   Created: 2021/06/19 14:53:11 by alaafia           #+#    #+#             */
+/*   Updated: 2021/06/19 14:53:17 by alaafia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+int	ft_strisnum(char *s)
 {
-	size_t			i;
-	unsigned char	*d;
-	unsigned char	*s;
-
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	i = 0;
-	while (i < n)
+	if (!s)
+		return (0);
+	while (*s == ' ')
+		s++;
+	if (*s == '+' || *s == '-')
+		s++;
+	while (*s)
 	{
-		d[i] = s[i];
-		if (d[i] == (unsigned char)c)
-			return ((void *)(dst + i + 1));
-		++i;
+		if (*s < '0' || *s > '9')
+			return (0);
+		s++;
 	}
-	return (NULL);
+	return (1);
 }

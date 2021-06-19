@@ -6,7 +6,7 @@
 /*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 16:01:19 by alaafia           #+#    #+#             */
-/*   Updated: 2021/06/16 16:01:40 by alaafia          ###   ########.fr       */
+/*   Updated: 2021/06/19 14:47:29 by alaafia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,4 @@
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-}
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
 }

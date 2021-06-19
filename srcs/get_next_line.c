@@ -3,68 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alaafia <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 17:02:18 by alaafia           #+#    #+#             */
-/*   Updated: 2020/01/20 18:22:49 by alaafia          ###   ########.fr       */
+/*   Updated: 2021/06/19 15:00:18 by alaafia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "push_swap.h"
 
-int				get_line(char **sta, int n, char **line, int fd)
+static int	ft_rmp(char **new, int n, char **line, int fd)
 {
 	char	*temp;
 	int		i;
 
 	i = 0;
-	while (sta[fd][i] && sta[fd][i] != '\n')
+	while (new[fd][i] && new[fd][i] != '\n')
 		i++;
-	*line = ft_substr(sta[fd], 0, i);
-	if (!sta[fd][i])
+	*line = ft_substr(new[fd], 0, i);
+	if (!new[fd][i])
 	{
-		temp = sta[fd];
-		sta[fd] = NULL;
+		temp = new[fd];
+		new[fd] = NULL;
 		free(temp);
 		return (0);
 	}
 	else
 	{
-		temp = sta[fd];
-		sta[fd] = ft_strdup((sta[fd]) + i + 1);
+		temp = new[fd];
+		new[fd] = ft_strdup((new[fd]) + i + 1);
 		free(temp);
 	}
-	if (!sta[fd] || !*line)
+	if (!new[fd] || !*line)
 		return (-1);
-	if (n || (n == 0 && sta[fd] != NULL))
+	if (n || (n == 0 && new[fd] != NULL))
 		return (1);
 	return (-1);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	char			*buf;
-	static char		*sta[4864];
-	char			*temp;
-	int				n;
+	char		*buf;
+	static char	*oldline[4864];
+	char		*temp;
+	int			n;
 
-	buf = NULL;
-	if (!line || fd < 0 || fd >= 4864 || BUFFER_SIZE <= 0
-			|| !(buf = malloc(BUFFER_SIZE + 1)) || read(fd, buf, 0) == -1)
+	buf = malloc(BUFFER_SIZE + 1);
+	if (!line || fd < 0 || fd >= 4864 || BUFFER_SIZE <= 0 || \
+	!buf || read(fd, buf, 0) == -1)
 		return (-1);
-	if (!sta[fd])
-		if (!(sta[fd] = ft_strdup("")))
-			return (-1);
-	while ((n = read(fd, buf, BUFFER_SIZE)))
+	if (!oldline[fd])
+		oldline[fd] = ft_strdup("");
+	while ((!ft_strchr(oldline[fd], '\n')))
 	{
-		temp = sta[fd];
-		buf[n] = '\0';
-		if (!(sta[fd] = ft_strjoin(sta[fd], buf)))
-			return (-1);
-		free(temp);
-		if (ft_strchr(sta[fd], '\n') != 0)
+		n = read(fd, buf, BUFFER_SIZE);
+		if (n == 0)
 			break ;
+		if (n < 0)
+			return (-1);
+		temp = oldline[fd];
+		buf[n] = '\0';
+		oldline[fd] = ft_strjoin(oldline[fd], buf);
+		free(temp);
 	}
 	free(buf);
-	return (get_line(sta, n, line, fd));
+	return (ft_rmp(oldline, n, line, fd));
 }

@@ -6,7 +6,7 @@
 /*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:37:10 by alaafia           #+#    #+#             */
-/*   Updated: 2021/06/16 14:37:25 by alaafia          ###   ########.fr       */
+/*   Updated: 2021/06/19 15:01:19 by alaafia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ int	main(int argc, char **argv)
 	free(argv);
 	return (0);
 }
-

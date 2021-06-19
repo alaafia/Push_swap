@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 15:43:00 by alaafia           #+#    #+#             */
-/*   Updated: 2021/06/19 14:44:51 by alaafia          ###   ########.fr       */
+/*   Created: 2021/06/19 14:55:55 by alaafia           #+#    #+#             */
+/*   Updated: 2021/06/19 14:56:00 by alaafia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t			i;
-	unsigned char	*d;
-	unsigned char	*s;
+	size_t	i;
+	size_t	j;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
 	i = 0;
-	while (i < n)
+	j = 0;
+	if (ft_strlen(needle) == 0)
+		return ((char *)haystack);
+	while (haystack[i] && needle[j])
 	{
-		d[i] = s[i];
-		if (d[i] == (unsigned char)c)
-			return ((void *)(dst + i + 1));
-		++i;
+		j = 0;
+		while (haystack[i + j] == needle[j] && \
+		haystack[i + j] && needle[j] && i + j < len)
+			j++;
+		if (!needle[j])
+			return ((char *)&haystack[i]);
+		else
+			i++;
 	}
-	return (NULL);
+	return (0);
 }

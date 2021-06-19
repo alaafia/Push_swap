@@ -21,7 +21,10 @@ SRC_DIR	=	./srcs/
 OBJ_DIR		=	./objs/
 INC_DIR		=	./includes/
 
-PRINT	=	ft_putchar.c 
+PRINT	=	ft_putchar_fd.c 
+PRINT	+=	ft_putendl_fd.c 
+PRINT	+=	ft_putnbr_fd.c 
+PRINT	+=	ft_putstr_fd.c 
 PRINT	+=	ft_putchar.c 
 PRINT	+=	ft_putendl.c 
 PRINT	+=	ft_putnbr.c 
@@ -29,13 +32,31 @@ PRINT	+=	ft_putstr.c
 
 MEM		=	ft_memccpy.c 
 MEM		+=	ft_memmove.c 
+MEM		+=	ft_memset.c 
 MEM		+=	ft_memalloc.c 
+MEM		+=	ft_memchr.c 
+MEM		+=	ft_memcmp.c 
+MEM		+=	ft_memcpy.c 
+MEM		+=	ft_calloc.c 
+MEM		+=	ft_free.c 
+MEM		+=	ft_bzero.c 
 
 STR		=	ft_strchr.c 
+STR		+=	ft_strrchr.c 
+STR		+=	ft_strnstr.c 
 STR		+=	ft_strdup.c 
+STR		+=	ft_strjoin.c 
+STR		+=	ft_strtrim.c 
+STR		+=	ft_strlcat.c 
+STR		+=	ft_strlcpy.c 
+STR		+=	ft_substr.c 
+STR		+=	ft_strlen.c 
 STR		+=	ft_split.c 
+STR		+=	ft_strncmp.c 
+STR		+=	ft_strcpy.c 
 SRC		+=	ft_strmapi.c 
 STR		+=	ft_strcmp.c 
+STR		+=	ft_strisnum.c 
 
 CHAR	=	ft_isdigit.c 
 CHAR	+=	ft_toupper.c 

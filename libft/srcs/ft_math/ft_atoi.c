@@ -6,11 +6,13 @@
 /*   By: alaafia <alaafia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:33:22 by alaafia           #+#    #+#             */
-/*   Updated: 2021/06/16 15:33:26 by alaafia          ###   ########.fr       */
+/*   Updated: 2021/06/19 16:02:18 by alaafia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+#include <stdlib.h>
 
 int	ft_atoi(const char *str)
 {
